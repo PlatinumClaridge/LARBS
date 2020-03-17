@@ -74,6 +74,7 @@
 ,notmuch,"indexes and searches mail."
 ,abook,"is a terminal based address book."
 ,urlview,"outputs urls in mail to browser."
+,xrdb,"applies Xresources values."
 G,https://github.com/LukeSmithxyz/mutt-wizard.git,"run this and get your email auto configured in minutes."
 G,https://github.com/PlatinumClaridge/dwmblocks.git,"serves as the modular status bar."
 G,https://github.com/PlatinumClaridge/dmenu.git,"runs commands and provides a UI for selection."
