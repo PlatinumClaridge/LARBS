@@ -69,6 +69,7 @@
 ,gimp,"is everyone's favorite open source gui image editor."
 ,neomutt,"an extensible mail client in the terminal."
 ,isync,"downloads and syncs mail."
+,msmtp,"handles sending email."
 ,pass,"safely encrypts passwords."
 ,notmuch,"indexes and searches mail."
 ,abook,"is a terminal based address book."
