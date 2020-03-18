@@ -6,7 +6,7 @@ Technically, yes, but basically the same.
 
 Since the [launch of LARBS 1.0](https://www.youtube.com/watch?v=yo1qqUH6_O4), I've grown accustomed to using the efficient keybinds, scripts, and programs despite it becoming a [big meme](https://i.imgur.com/WhnDjww.jpg).
 
-LARBS Void Edition, as the name implies, is optimized to work exclusively on Void Linux with dwm. I wanted to bring it back to just one set of keybinds, programs, and scripts that are clear and easy to wrap your head around. I've also removed a number of scripts and commands that were personalized to Luke's work flow.
+LARBS Void Edition, as the name implies, is optimized to work exclusively on Void Linux with dwm. I wanted to bring it back to just one set of keybinds, programs, and scripts that are clear and easy to wrap your head around.
 
 LARBS Void Edition allows you to skip the relatively demanding task of building a custom Void Linux system. You get a complete foundation that can be up and running within 10 minutes while remaining minimal, efficient, and modular.
 
@@ -14,11 +14,13 @@ The goal is to keep it light weight, fast, and reasonably unchanging (aside from
 
 ## Who's it for?
 
-It's designed to be an excellent starting point for people who aren't afraid of poking around in config files and reading man pages. It's great for people who want a customizable system without spending hours or days building one from scratch.
+It's designed for people who aren't afraid of poking around in config files and reading man pages. It's great for people who want a customizable system without spending hours or days building one from scratch.
 
-If you're interested in teaching yourself the Linux ropes, LARBS provides an easy window into learning the command line, writing/modifying shell scripts, and how Linux works as a whole.
+The command line is the main interface in LARBS. Therefore, it's intended for people who are comfortable writing/modifying shell scripts and config files.
 
 _If your workflow requires specific programs or hardware devices, you may want to avoid installing LARBS Void Edition on your main machine. You may run into trouble with devices such as printers, bluetooth, or wifi. Some devices may require manual setup to get working_
+
+If it's important that your system runs clean and efficiently, free from reliance on ~~bloated~~ "fully featured" programs, then LARBS Void Edition might be exactly what you're looking for.
 
 ## Installation:
 
@@ -51,6 +53,8 @@ beginning of the script or giving the script one of these options:
 - `-r`: custom dotfiles repository (URL)
 - `-p`: custom programs list/dependencies (local file or URL)
 
+__Note: some of the scripts that LARBS deploys assume that certain programs are installed, so be sure to install necessary dependencies if you're going to use your own package list.__
+
 ### The `progs.csv` list
 
 LARBS will parse the given programs list and install all given programs. Note
@@ -61,15 +65,12 @@ The first column is a "tag" that determines how the program is installed, ""
 git repository that is meant to be `make && sudo make install`ed.
 
 The second column is the name of the program in the repository, or the link to
-the git repository, and the third comment is a description (should be a verb
-phrase) that describes the program. During installation, LARBS will print out
-this information in a grammatical sentence. It also doubles as documentation
-for people who read the csv or who want to install the voidrice dotfiles manually.
+the git repository, and the third comment is a brief description.
 
 Depending on your own build, you may want to tactically order the programs in
 your programs file. LARBS will install the programs in order from top to bottom.
 
-If you include commas in your program descriptions, be sure to include double quotes around the whole description to ensure correct parsing.
+__If you include commas in your program descriptions, be sure to include double quotes around the whole description to ensure correct parsing.__
 
 ### The script itself
 
@@ -78,9 +79,26 @@ trouble-shooting. Everything should be self-explanatory.
 
 The main work is done by the `installationloop` function, which iterates
 through the programs file and determines based on the tag of each program,
-which commands to run to install it. You can easily add new methods of
-installations and tags as well.
+which commands to run to install it.
 
-It's purposefully a very simple script, but if you have ideas on how to make it more elegant, feel free to submit a pull request or contact me:
+## Post Installation Recommendations
+
+To receive the latest updates to `voidrice`, you could simply pull them down using git, however this can conflict with any changes you've made locally.
+
+Some knowledge of `git` is recommended, but to make things easier, some of the commonly customized files have been isolated.
+
+For example, you can place all of your personal directories and files in `~/.config/directories` or `~/.config/files` and the `shortcuts` script will take care of applying those changes to zsh and the lf file manager.
+
+Additionally, `~/.config/aliasrc` is for adding your personal aliases and zsh commands.
+
+To be clear, *The aliasrc, files, and directories files will not receive future updates* so they are safe to modify as much as you like.
+
+However, if you modify files like `~/.config/nvim/init.vim` or `~/.config/zsh/.zshrc`, you may want to consider backing up your changes. I usually just generate a diff file for this.
+
+Personally, I put all additional packages and configs that are personal to my workflow in a separate shell script that I run after the main LARBS setup.
+
+This separation keeps LARBS clean and easy to understand.
+
+It's purposefully simple, but if you have ideas on how to make it more elegant, feel free to submit a pull request or contact me:
 
 am@claridge.xyz
