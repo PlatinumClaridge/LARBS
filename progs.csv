@@ -2,6 +2,7 @@
 ,xorg-minimal,"is the graphical server."
 ,xwininfo,"allows querying information about windows."
 ,xinit,"starts the graphical server."
+,ntp,"is a time synchronization daemon."
 ,xorg-fonts,"is a font package."
 ,libX11-devel,"is required for the compilation of some programs."
 ,libXft-devel,"is required for the compilation of some programs."

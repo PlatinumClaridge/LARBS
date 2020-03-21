@@ -127,6 +127,7 @@ ln -s /usr/share/fontconfig/conf.avail/70-no-bitmaps.conf /etc/fonts/conf.d/70-n
 
 # Enable services
 ln -s /etc/sv/cronie /var/service/
+ln -s /etc/sv/isc-ntpd /var/service/
 
 # Disable ttys 3-6
 rm /var/service/agetty-tty6
