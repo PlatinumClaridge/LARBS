@@ -28,7 +28,7 @@ On a Void based distribution as root, run `xbps-install -Su` to assure your syst
 
 ```
 xbps-install wget
-wget https://claridge.xyz/larbs.sh
+wget -O larbs.sh larbs.claridge.xyz
 sh larbs.sh
 ```
 
